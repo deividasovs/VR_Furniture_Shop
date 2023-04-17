@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://VRPlayer.tscn" type="PackedScene" id=1]
+
+[node name="World" type="Spatial"]
+
+[node name="VRPlayer" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312963, 1.02821, -0.0195258 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.366391, -1.07463 )
+width = 3.37763
+height = 0.400474
+depth = 4.41205
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.228045, 0.973651, 0, -0.973651, 0.228045, 0, 2.3983, 0 )
