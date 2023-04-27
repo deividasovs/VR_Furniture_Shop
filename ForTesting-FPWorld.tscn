@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Player/FPPlayerLocomotion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Models/InteractionPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Spatial"]
 
@@ -13,6 +14,9 @@ transform = Transform( 1, 0, 0, 0, 0.228045, 0.973651, 0, -0.973651, 0.228045, 0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.920068, 0.192995, -0.340923, 0, 0.870235, 0.492636, 0.391759, -0.453259, 0.800676, -4.29388, 2.98146, -0.148669 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.999359, 0, -0.0358065, 0, 1, 0, 0.0358065, 0, -0.999359, 13.9003, 1.12165, -4.68336 )
 
 [node name="InteractionPlatform" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34532, -0.992019, -9.26184 )
