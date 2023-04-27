@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player/FPPlayerLocomotion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Models/InteractionPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.258857, 0.475394, 0.487805 )
 
 [node name="World" type="Spatial"]
 
@@ -16,7 +19,54 @@ transform = Transform( 1, 0, 0, 0, 0.228045, 0.973651, 0, -0.973651, 0.228045, 0
 transform = Transform( 0.920068, 0.192995, -0.340923, 0, 0.870235, 0.492636, 0.391759, -0.453259, 0.800676, -4.29388, 2.98146, -0.148669 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.999359, 0, -0.0358065, 0, 1, 0, 0.0358065, 0, -0.999359, 13.9003, 1.12165, -4.68336 )
+transform = Transform( -0.999359, 0, -0.0358065, 0, 1, 0, 0.0358065, 0, -0.999359, 12.4019, 1.12165, -4.68336 )
 
 [node name="InteractionPlatform" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34532, -0.992019, -9.26184 )
+
+[node name="SampleInputs" type="Spatial" parent="."]
+
+[node name="Platform1" type="StaticBody" parent="SampleInputs"]
+
+[node name="Platform" type="CSGBox" parent="SampleInputs/Platform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.557257, 4.02136 )
+height = 0.23483
+
+[node name="CollisionShape" type="CollisionShape" parent="SampleInputs/Platform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.512783, 4.02136 )
+shape = SubResource( 1 )
+
+[node name="Platform2" type="StaticBody" parent="SampleInputs"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45511, 0, 0 )
+
+[node name="Platform" type="CSGBox" parent="SampleInputs/Platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.557257, 4.02136 )
+height = 0.23483
+
+[node name="CollisionShape" type="CollisionShape" parent="SampleInputs/Platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.512783, 4.02136 )
+shape = SubResource( 1 )
+
+[node name="Button" type="StaticBody" parent="SampleInputs"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60414, 1.45275, 2.81512 )
+
+[node name="Platform" type="CSGBox" parent="SampleInputs/Button"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.55161, -0.444784, 3.85338 )
+width = 0.841132
+height = 0.779613
+depth = 0.709067
+
+[node name="CollisionShape" type="CollisionShape" parent="SampleInputs/Button"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65055, -0.490273, 3.75453 )
+shape = SubResource( 1 )
+
+[node name="Platform3" type="StaticBody" parent="SampleInputs"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97982, 0, 0 )
+
+[node name="Platform" type="CSGBox" parent="SampleInputs/Platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.557257, 4.02136 )
+height = 0.23483
+
+[node name="CollisionShape" type="CollisionShape" parent="SampleInputs/Platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85993, -0.512783, 4.02136 )
+shape = SubResource( 1 )

@@ -4,7 +4,7 @@ onready var anim_player = $AnimationPlayer
 
 # Anim not playing by default
 func _ready():
-	print("Ready")
+	anim_player.stop()
 
 # Turns the light on
 func open_door():
