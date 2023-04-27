@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/566176__windwalk_entertainment__flicking-a-switch.wav-3076ed34c091001211b2d926a691bad7.sample"
+
+[deps]
+
+source_file="res://Sounds/566176__windwalk_entertainment__flicking-a-switch.wav"
+dest_files=[ "res://.import/566176__windwalk_entertainment__flicking-a-switch.wav-3076ed34c091001211b2d926a691bad7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

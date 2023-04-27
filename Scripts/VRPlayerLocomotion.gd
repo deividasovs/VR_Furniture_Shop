@@ -31,7 +31,7 @@ func _physics_process(delta):
 	var z_value = ARVRServer.get_hmd_transform().basis.z.y
 	
 	# determines the currently facing direction -- needed later for moving in that direction
-	var direction = Vector3(
+	var direction = -Vector3(
 		ARVRServer.get_hmd_transform().basis.z.x, 
 		0, 
 		ARVRServer.get_hmd_transform().basis.z.z)
