@@ -26,12 +26,10 @@ script = ExtResource( 1 )
 anims/DoorRotation = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 visible = false
 shape = SubResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 width = 0.383591
 height = 3.01192
 depth = 1.86321
