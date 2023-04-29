@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Door.gd" type="Script" id=1]
 [ext_resource path="res://Models/Door.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Models/door.tres" type="Material" id=3]
 
 [sub_resource type="Animation" id=3]
 resource_name = "DoorRotation"
@@ -34,9 +35,15 @@ shape = SubResource( 1 )
 [node name="DoorHingeContainer" type="Spatial" parent="."]
 
 [node name="Door2" type="MeshInstance" parent="DoorHingeContainer"]
-transform = Transform( 6.55671e-10, 0, 0.015, 0, 0.015, 0, 0.015, 0, -6.55671e-10, 0, -1.27129, -0.625512 )
+transform = Transform( 1.35896e-09, -2.05198e-16, 0.018, 2.71792e-09, 0.018, 0, 0.018, -2.71792e-09, -1.35896e-09, 0, -1.27129, -0.625512 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 3 )
+material/2 = ExtResource( 3 )
+material/3 = ExtResource( 3 )
+material/4 = ExtResource( 3 )
+material/5 = ExtResource( 3 )
 
 [node name="Area" type="Area" parent="."]
 
