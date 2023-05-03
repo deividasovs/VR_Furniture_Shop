@@ -51,8 +51,5 @@ material/5 = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55807, -0.00508499, -0.00178814 )
 shape = SubResource( 2 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.117533, -0.899911, 0.419937, 0.944393, 0.029481, 0.327495, -0.307096, 0.435077, 0.846404, 2.99931, 1.53987, 0.000402927 )
-
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

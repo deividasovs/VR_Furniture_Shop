@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player/FPPlayerLocomotion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Models/InteractionPlatform.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Skybox/kloofendal_48d_partly_cloudy_puresky_4k.exr" type="Texture" id=4]
 [ext_resource path="res://Scripts/platform.gd" type="Script" id=5]
 [ext_resource path="res://Textures/TextTexture.png" type="Texture" id=6]
+[ext_resource path="res://Models/env.glb" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/city-soundscape.mp3" type="AudioStream" id=8]
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -98,6 +100,13 @@ margin_top = 124.0
 margin_right = 456.0
 margin_bottom = 155.0
 text = "Hello World"
+
+[node name="env" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.72838, 5.12116, 3.57351 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
 
 [connection signal="area_entered" from="SampleInputs/Platform1/Area" to="SampleInputs/Platform1" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="SampleInputs/Platform1/Area" to="SampleInputs/Platform1" method="_on_Area_area_exited"]
