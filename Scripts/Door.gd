@@ -15,4 +15,5 @@ func open_door():
 		door_open = true
 
 func _on_Area_body_entered(body):
-	open_door()
+	if(body.name == "FPPlayerLocomotion"):
+		open_door()
