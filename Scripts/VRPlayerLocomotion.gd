@@ -3,8 +3,11 @@ extends ARVROrigin
 onready var hud = $VRDebugHUD
 export var speed = 0.1
 
+var parent_Obj = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	parent_Obj = get_parent()
 	# display available interfaces (debug only: can be deleted later)
 	var noInterfaces = ARVRServer.get_interface_count()
 	var interfaces = ARVRServer.get_interfaces()
@@ -18,6 +21,7 @@ func _ready():
 		get_viewport().hdr = false
 	
 func _physics_process(delta):
+	#parent_Obj.move_parent(100)
 	# call HUD to display data
 	if hud.enabled:
 		hud.displayHUD(ARVRServer.get_hmd_transform())
@@ -40,11 +44,15 @@ func _physics_process(delta):
 	if (y_value < 0.9 && z_value > 0.4):
 		# VRPlayer is looking downward (below level)
 		hud.setStatus("Forward")
-		translate(direction * speed)
+		#translate(direction * speed)
+		var dir = direction * speed
+		parent_Obj.move_parent(dir * 100)
 	elif (y_value < 0.9 && z_value < 0.4):
 		# VRPlayer is looking upward (above level)
 		hud.setStatus("Backward")
-		translate(-direction * speed)
+		#translate(-direction * speed)
+		var dir = -direction * speed
+		parent_Obj.move_parent(dir * 100)
 	else:
 		# VRPlayer is neighter looking up or down
 		hud.setStatus("...")
