@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/ModifyTextures.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/click.wav" type="AudioStream" id=2]
+[ext_resource path="res://Textures/Wood/Wood_diffuse.jpg" type="Texture" id=3]
+[ext_resource path="res://Models/Shop/Materials/Wood/DarkWood.material" type="Material" id=4]
+[ext_resource path="res://Models/Materials/ChangeTextureButton.material" type="Material" id=5]
+[ext_resource path="res://Textures/Wood/Wood050_4K_Color.jpg" type="Texture" id=6]
+
+[sub_resource type="Animation" id=5]
+resource_name = "ButtonDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlatformButton:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10785, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0224202, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.390609, 1, 0.141186 )
+
+[node name="ToggleTexturesPlatform" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04455, -0.560928, 21.0866 )
+width = 1.2
+height = 0.2
+depth = 1.2
+script = ExtResource( 1 )
+material_to_modify = ExtResource( 4 )
+button_material = ExtResource( 5 )
+texture_1 = ExtResource( 3 )
+texture_2 = ExtResource( 6 )
+
+[node name="ButtonDownAnim" type="AnimationPlayer" parent="."]
+anims/ButtonDown = SubResource( 5 )
+
+[node name="PlatformButton" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10785, 0 )
+width = 1.0
+height = 0.208
+depth = 1.0
+material = ExtResource( 5 )
+
+[node name="Area" type="Area" parent="PlatformButton"]
+transform = Transform( 1.83491, 0, 0, 0, 1, 0, 0, 0, 1.6501, -0.0299411, 0.0102665, 0.0146217 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PlatformButton/Area"]
+shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="body_entered" from="PlatformButton/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="PlatformButton/Area" to="." method="_on_Area_body_exited"]

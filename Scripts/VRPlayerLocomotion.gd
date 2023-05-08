@@ -1,7 +1,6 @@
 extends ARVROrigin
 
-onready var hud = $VRDebugHUD
-export var speed = 0.1
+export var speed = 0.05
 
 var parent_Obj = null
 
@@ -21,11 +20,6 @@ func _ready():
 		get_viewport().hdr = false
 	
 func _physics_process(delta):
-	#parent_Obj.move_parent(100)
-	# call HUD to display data
-	if hud.enabled:
-		hud.displayHUD(ARVRServer.get_hmd_transform())
-	
 	# y-value of the Y-axis of the basis vector is needed to determine if VRPlayer looks down (or up)
 	# specifically, the value decreases below 0 when the player looks down
 	var y_value = ARVRServer.get_hmd_transform().basis.y.y
@@ -43,16 +37,9 @@ func _physics_process(delta):
 	# check on angle and decide how to move (using direction vector above)
 	if (y_value < 0.9 && z_value > 0.4):
 		# VRPlayer is looking downward (below level)
-		hud.setStatus("Forward")
-		#translate(direction * speed)
 		var dir = direction * speed
 		parent_Obj.move_parent(dir * 100)
 	elif (y_value < 0.9 && z_value < 0.4):
 		# VRPlayer is looking upward (above level)
-		hud.setStatus("Backward")
-		#translate(-direction * speed)
 		var dir = -direction * speed
 		parent_Obj.move_parent(dir * 100)
-	else:
-		# VRPlayer is neighter looking up or down
-		hud.setStatus("...")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/ExitUIPlatform.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Text/ExitText.jpg" type="Texture" id=2]
+
+[sub_resource type="Animation" id=6]
+resource_name = "MoveExitUIUp"
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0.0434499, -2.66088, -6.43324, 0, 1, 0, -4.37114e-08, 1, 1, 1, 0.4, 1, 0.0434499, 2.20002, -6.43324, 0, 1, 0, -4.37114e-08, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.390609, 1, 0.141186 )
+
+[node name="ExitUIPlatformInput2" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49492, -0.337849, 17.0638 )
+script = ExtResource( 1 )
+
+[node name="UIPopUpAnimPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UIExitPopup")
+anims/MoveExitUIUp = SubResource( 6 )
+
+[node name="UIExitPopup" type="CSGBox" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0434499, -2.66088, -6.43324 )
+invert_faces = true
+width = 4.74886
+height = 4.31502
+depth = 0.002
+material = SubResource( 5 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 4.03582, 0, 0, 0, 7.06433, 0, 0, 0, 11.1496, 0.0203557, 0.873045, 0.0146217 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

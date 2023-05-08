@@ -11,12 +11,16 @@ config_version=4
 [application]
 
 config/name="VR_Furniture_Shop"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/MainTest.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
 
 singletons=[  ]
+
+[global]
+
+DEPENdencies=false
 
 [gui]
 
